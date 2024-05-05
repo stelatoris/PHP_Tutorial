@@ -1,0 +1,6 @@
+PHP commands list:
+php -h
+
+Run a server:
+D:\Dev\PHP_Tut\demo
+λ php -S localhost:8888
