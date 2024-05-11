@@ -16,3 +16,9 @@ function urlIs($value)
 }
 
 
+function authorize($condition, $status)
+{
+    if( $condition) {
+        abort($status);
+    }
+}
