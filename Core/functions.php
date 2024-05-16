@@ -1,5 +1,5 @@
 <?php
-
+use Core\Response;
 function dd($value)
 {
     echo "<pre>";
@@ -15,13 +15,24 @@ function urlIs($value)
     return $_SERVER['REQUEST_URI'] === $value;
 }
 
-
-function authorize($condition, $status)
+function abort($status = 404)
 {
-    if( $condition) {
+    http_response_code($status);
+
+    require base_path("views/{$status}.php");
+
+    die();
+}
+
+
+function authorize($condition, $status = Response::FORBIDDEN)
+{
+    if(! $condition) {
         abort($status);
     }
 }
+
+
 
 function base_path($path)
 {
